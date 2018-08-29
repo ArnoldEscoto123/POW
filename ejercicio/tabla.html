@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Filtar una tabla</title>
+	<link rel="stylesheet" type="text/css" href="estilo.css">
+</head>
+<body>
+
+<div class="container-fluid">
+<div class="row">
+  <div class="col-xs-12">
+    <h1 class="page-header" align="center">
+      FILTRAR EN UNA TABLA
+    </h1>
+
+    <table id="tabla" class="table table-striped" align="center">
+      <thead>
+        <tr>
+          <td colspan="7" id="contenedor">
+						Buscar:
+            <input id="buscar" type="text" class="form-control" placeholder="            Busqueda de Producto"/>
+          </td>
+        </tr>
+				<thead>
+					<tr>
+						<td>Nombre</td>
+						<td>U.M</td>
+						<td>Existencias</td>
+						<td>Exp</td>
+						<td>P.compra</td>
+						<td>P.venta</td>
+					</tr>
+				</thead>
+      </thead>
+      <tbody>
+				<tr>
+          <td>Carne</td>
+          <td>Libra</td>
+          <td>50</td>
+          <td>10/09/2018</td>
+          <td>C$ 75.50</td>
+          <td>C$ 80.60</td>
+        </tr>
+        <tr>
+          <td>Leche</td>
+          <td>Litro</td>
+          <td>50</td>
+          <td>01/04/2019</td>
+          <td>C$ 32.00</td>
+          <td>C$ 33.50</td>
+        </tr>
+        <tr>
+          <td>Arroz</td>
+          <td>Libra</td>
+          <td>80</td>
+          <td>04/06/2020</td>
+          <td>C$ 22.50</td>
+          <td>C$ 24.50</td>
+        </tr>
+        <tr>
+          <td>Jabon</td>
+          <td>Unidad</td>
+          <td>50</td>
+          <td>20/05/2019</td>
+          <td>C$ 16.00</td>
+          <td>C$ 18.00</td>
+        </tr>
+        <tr>
+          <td>Cloro</td>
+          <td>Litro</td>
+          <td>30</td>
+          <td>19/09/2020</td>
+          <td>C$ 25.00</td>
+          <td>C$ 28.00</td>
+        </tr>
+        <tr>
+          <td>Naranjas</td>
+          <td>Unidad</td>
+          <td>100</td>
+          <td>07/02/2019</td>
+          <td>C$ 20.50</td>
+          <td>C$ 22.70</td>
+        </tr>
+        <tr>
+          <td>Soda</td>
+          <td>Litro</td>
+          <td>40</td>
+          <td>12/12/2022</td>
+          <td>C$ 35.53</td>
+          <td>C$ 40.50</td>
+        </tr>
+        <tr>
+          <td>Queso</td>
+          <td>Libra</td>
+          <td>35</td>
+          <td>30/09/2018</td>
+          <td>C$ 50.50</td>
+          <td>C$ 55.00</td>
+        </tr>
+        <tr>
+          <td>Frijoles</td>
+          <td>Libra</td>
+          <td>95</td>
+          <td>15/07/2019</td>
+          <td>C$ 29.50</td>
+          <td>C$ 30.00</td>
+        </tr>
+				<tr>
+          <td>Banano</td>
+          <td>Unidad</td>
+          <td>595</td>
+          <td>13/07/2019</td>
+          <td>C$ 21.50</td>
+          <td>C$ 30.31</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
+<script>
+document.querySelector("#buscar").onkeyup = function(){
+			$TableFilter("#tabla", this.value);
+	}
+
+	$TableFilter = function(id, value){
+			var rows = document.querySelectorAll(id + ' tbody tr');
+
+			for(var i = 0; i < rows.length; i++){
+					var showRow = false;
+
+					var row = rows[i];
+					row.style.display = 'none';
+
+					for(var x = 0; x < row.childElementCount; x++){
+							if(row.children[x].textContent.toLowerCase().indexOf(value.toLowerCase().trim()) > -1){
+									showRow = true;
+									break;
+							}
+					}
+
+					if(showRow){
+							row.style.display = null;
+					}
+			}
+	}
+
+</script>
+</body>
+</html>

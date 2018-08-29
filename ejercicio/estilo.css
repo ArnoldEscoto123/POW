@@ -1,0 +1,57 @@
+body{
+	background-color: #d5be8a;
+}
+
+#main-container{
+	margin: 150px auto;
+	width: 800px;
+}
+
+.page-header{
+	color: white;
+}
+
+table{
+	background-color: white;
+	text-align: left;
+	border-collapse: collapse;
+	width: 80%;
+	border: solid 2px black;
+}
+
+th,td{
+	padding: 15px;
+}
+
+td{
+	border: solid 2px black;
+}
+
+#contenedor{
+
+}
+
+#buscar{
+	height: 20px;
+}
+
+thead{
+	background-color: #f5890a;
+	border-bottom: solid 5px black;
+	color: white;
+}
+
+
+tr:hover td{
+	background-color: #f5890a;
+	color white;
+}
+
+.form-control{
+	border-radius: 5px;
+	border: 1px solid #39c;
+	width: 300px;
+	height: 50px;
+	size: 32;
+	text-align: left;
+}
